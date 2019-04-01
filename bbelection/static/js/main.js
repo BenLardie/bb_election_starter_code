@@ -10,6 +10,10 @@ axios.get('https://bb-election-api.herokuapp.com/')
     let li = document.createElement('li');
     li.innerHTML = `Name: ${person.name} Votes: ${person.votes}`;
     ul.appendChild(li);
+    let form = document.createElement('form');
+    form.method = 'POST';
+    form.action ='https://bb-election-api.herokuapp.com/vote';
+    li.appendChild(form);
     
 });
 });
