@@ -23,8 +23,19 @@ axios.get('https://bb-election-api.herokuapp.com/')
     hiddenField.value = person.id;
     form.appendChild(hiddenField);
     form.appendChild(button);
+    button.addEventListener('click', function(butt) {
+        butt.preventDefault();
+        axios.post('https://bb-election-api.herokuapp.com/vote', {'id': person.id})
+        .then(console.log(response));
+
+    });
+
+    });
 
 });
+  let refresh = document.querySelector('.refresh');
+    refresh.addEventListener('click', function() {
+    location.reload();
 });
 
     
