@@ -11,10 +11,19 @@ axios.get('https://bb-election-api.herokuapp.com/')
     li.innerHTML = `Name: ${person.name} Votes: ${person.votes}`;
     ul.appendChild(li);
     let form = document.createElement('form');
+    let hiddenField = document.createElement('input');
+    hiddenField.setAttribute('type', 'hidden');
     form.method = 'POST';
     form.action ='https://bb-election-api.herokuapp.com/vote';
     li.appendChild(form);
-    
+    let button = document.createElement('button');
+    button.innerHTML= 'Submit';
+    button.type = 'submit';
+    hiddenField.name = 'id';
+    hiddenField.value = person.id;
+    form.appendChild(hiddenField);
+    form.appendChild(button);
+
 });
 });
 
